@@ -9,7 +9,7 @@ from collections import Counter
 import re
 import io
 import sys
-
+import ast
 # ============= 安全设置编码（只在需要时） =============
 try:
     # 检查是否在Streamlit Cloud环境
