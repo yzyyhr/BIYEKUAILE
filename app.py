@@ -1,28 +1,29 @@
 #!/usr/bin/env python
-# coding: utf-8
 # -*- coding: utf-8 -*-
-import sys
-import io
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-
 
 import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from collections import Counter
-import base64
-import ast
 import re
+import io
+import sys
+
+# ============= 安全设置编码（只在需要时） =============
+try:
+    # 检查是否在Streamlit Cloud环境
+    if not st.runtime.exists():
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+except:
+    pass  # 如果出错就忽略
 
 # ============= 页面配置 =============
 st.set_page_config(
     page_title="霍兰德职业兴趣推荐系统",
     page_icon="🎯",
-    layout="wide",
-    initial_sidebar_state="expanded"
+    layout="wide"
 )
-
 # ============= 自定义CSS样式 =============
 st.markdown("""
 <style>
